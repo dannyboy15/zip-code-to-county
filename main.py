@@ -1,9 +1,10 @@
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+from typing import Optional
 
+import pandas as pd
 import requests
 import time
-import pandas as pd
 
 ROOT = Path(__file__).parent
 DATA_DIR = ROOT / "data"
@@ -74,7 +75,7 @@ def process_census_fips_file(path: Path) -> pd.DataFrame:
     return df
 
 
-def download_file(url: str, file_name: Path | None= None) -> Path:
+def download_file(url: str, file_name: Optional[Path] = None) -> Path:
     """Download a file."""
 
     file_name = file_name or Path(url.split("/")[-1])
