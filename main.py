@@ -27,7 +27,7 @@ def verify_downloads_dir_exists() -> None:
 def remove_downloads_dir() -> None:
     def rmtree(path: Path) -> None:
         if path.is_file():
-            path.unlink(missing_ok=True)
+            path.unlink()
         else:
             files = list(path.iterdir())
             for child in files:
